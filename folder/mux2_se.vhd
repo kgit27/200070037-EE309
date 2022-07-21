@@ -1,0 +1,55 @@
+library std;
+use std.standard.all;
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity Mux_2_sign is
+	port(A: in std_logic_vector(5 downto 0);
+		  B: in std_logic_vector(8 downto 0);
+		  SEL: in std_logic;
+		  Y: out std_logic_vector(15 downto 0));
+end entity;
+
+architecture beh of Mux_2_sign is
+
+
+signal output: std_logic_vector(15 downto 0);
+signal inpa: std_logic_vector(15 downto 0);
+signal inpb: std_logic_vector(15 downto 0);
+
+begin
+	inpa<=(5=>A(5),
+			 4=>A(4),
+			 3=>A(3),
+			 2=>A(2),
+			 1=>A(1),
+			 0=>A(0),
+			 others=>'0');
+	inpb<=(8=>B(8),
+			 7=>B(7),
+			 6=>B(6),
+			 5=>B(5),
+			 4=>B(4),
+			 3=>B(3),
+			 2=>B(2),
+			 1=>B(1),
+			 0=>B(0),
+			 others=>'0');
+			 
+			
+	Mux: process(inpa,inpb,SEL)
+	begin
+		case SEL is
+			when '0'=>
+				output <= inpa;
+			when '1'=>
+				output <= inpb;
+			when others =>
+				output <= "0000000000000000";
+		end case;
+	
+	end process;
+	
+	Y <= output;
+end beh;

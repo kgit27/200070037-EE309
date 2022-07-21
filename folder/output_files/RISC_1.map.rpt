@@ -1,0 +1,691 @@
+Analysis & Synthesis report for RISC_1
+Tue May 03 12:34:12 2022
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Port Connectivity Checks: "Mux_4:mux4_1"
+ 13. Port Connectivity Checks: "Mux_4:mux4_2"
+ 14. Port Connectivity Checks: "registers:num"
+ 15. Port Connectivity Checks: "mux2_16bit:mux7"
+ 16. Port Connectivity Checks: "alu:alu1|subtractor:sub1|subtractor_2:F0"
+ 17. Port Connectivity Checks: "alu:alu1|add:add1|FullAdder:F0"
+ 18. Port Connectivity Checks: "alu:alu1"
+ 19. Port Connectivity Checks: "Mux_8:mux8_2"
+ 20. Port Connectivity Checks: "Mux_8:mux8_1"
+ 21. Port Connectivity Checks: "Mux_4:mux6"
+ 22. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                              ;
++-----------------------------+---------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Tue May 03 12:34:12 2022       ;
+; Quartus Prime Version       ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Revision Name               ; RISC_1                                      ;
+; Top-level Entity Name       ; datapath                                    ;
+; Family                      ; MAX V                                       ;
+; Total logic elements        ; 1,005                                       ;
+; Total pins                  ; 63                                          ;
+; Total virtual pins          ; 0                                           ;
+; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
++-----------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 5M1270ZT144C5      ;                    ;
+; Top-level entity name                                            ; datapath           ; RISC_1             ;
+; Family name                                                      ; MAX V              ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                           ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                    ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+---------+
+; or.vhd                           ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/or.vhd               ;         ;
+; nand.vhd                         ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/nand.vhd             ;         ;
+; 1_bit_adder.vhd                  ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/1_bit_adder.vhd      ;         ;
+; 16_bit adder.vhd                 ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/16_bit adder.vhd     ;         ;
+; alu.vhd                          ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/alu.vhd              ;         ;
+; subractor.vhd                    ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/subractor.vhd        ;         ;
+; 1_bit_subtractor.vhd             ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/1_bit_subtractor.vhd ;         ;
+; alu_comp.vhd                     ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/alu_comp.vhd         ;         ;
+; shift_7.vhd                      ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/shift_7.vhd          ;         ;
+; shift_1.vhd                      ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/shift_1.vhd          ;         ;
+; memory.vhd                       ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/memory.vhd           ;         ;
+; register.vhd                     ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/register.vhd         ;         ;
+; rf.vhd                           ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/rf.vhd               ;         ;
+; R7.vhd                           ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/R7.vhd               ;         ;
+; datapath.vhd                     ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd         ;         ;
+; components.vhd                   ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/components.vhd       ;         ;
+; 2_mux.vhd                        ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/2_mux.vhd            ;         ;
+; 2mux_16bit.vhd                   ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/2mux_16bit.vhd       ;         ;
+; mux8.vhd                         ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/mux8.vhd             ;         ;
+; mux4.vhd                         ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/mux4.vhd             ;         ;
+; mux2_se.vhd                      ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/mux2_se.vhd          ;         ;
+; bit16to3.vhd                     ; yes             ; User VHDL File  ; G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/bit16to3.vhd         ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Total logic elements                        ; 1005  ;
+;     -- Combinational with no register       ; 483   ;
+;     -- Register only                        ; 317   ;
+;     -- Combinational with a register        ; 205   ;
+;                                             ;       ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 406   ;
+;     -- 3 input functions                    ; 104   ;
+;     -- 2 input functions                    ; 21    ;
+;     -- 1 input functions                    ; 144   ;
+;     -- 0 input functions                    ; 13    ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 1005  ;
+;     -- arithmetic mode                      ; 0     ;
+;     -- qfbk mode                            ; 0     ;
+;     -- register cascade mode                ; 0     ;
+;     -- synchronous clear/load mode          ; 16    ;
+;     -- asynchronous clear/load mode         ; 106   ;
+;                                             ;       ;
+; Total registers                             ; 522   ;
+; I/O pins                                    ; 63    ;
+; Maximum fan-out node                        ; clock ;
+; Maximum fan-out                             ; 522   ;
+; Total fan-out                               ; 3595  ;
+; Average fan-out                             ; 3.37  ;
++---------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                        ;
++----------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------------------------------------+--------------+--------------+
+; Compilation Hierarchy Node             ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                            ; Entity Name  ; Library Name ;
++----------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------------------------------------+--------------+--------------+
+; |datapath                              ; 1005 (0)    ; 522          ; 0          ; 63   ; 0            ; 483 (0)      ; 317 (0)           ; 205 (0)          ; 0 (0)           ; 0 (0)      ; |datapath                                                      ; datapath     ; work         ;
+;    |Mux_4:mux4_1|                      ; 10 (10)     ; 0            ; 0          ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|Mux_4:mux4_1                                         ; Mux_4        ; work         ;
+;    |Mux_8:mux8_1|                      ; 45 (45)     ; 0            ; 0          ; 0    ; 0            ; 45 (45)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|Mux_8:mux8_1                                         ; Mux_8        ; work         ;
+;    |Mux_8:mux8_2|                      ; 23 (23)     ; 0            ; 0          ; 0    ; 0            ; 23 (23)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|Mux_8:mux8_2                                         ; Mux_8        ; work         ;
+;    |R7:PC1|                            ; 16 (16)     ; 16           ; 0          ; 0    ; 0            ; 0 (0)        ; 16 (16)           ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|R7:PC1                                               ; R7           ; work         ;
+;    |R7:PC|                             ; 17 (17)     ; 16           ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 16 (16)          ; 0 (0)           ; 0 (0)      ; |datapath|R7:PC                                                ; R7           ; work         ;
+;    |alu:alu1|                          ; 70 (42)     ; 0            ; 0          ; 0    ; 0            ; 70 (42)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1                                             ; alu          ; work         ;
+;       |Nand_16:nand1|                  ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|Nand_16:nand1                               ; Nand_16      ; work         ;
+;       |OR_16:or1|                      ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|OR_16:or1                                   ; OR_16        ; work         ;
+;       |add:add1|                       ; 12 (0)      ; 0            ; 0          ; 0    ; 0            ; 12 (0)       ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|add:add1                                    ; add          ; work         ;
+;          |FullAdder:\ist_add:10:F1|    ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|add:add1|FullAdder:\ist_add:10:F1           ; FullAdder    ; work         ;
+;          |FullAdder:\ist_add:11:F1|    ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|add:add1|FullAdder:\ist_add:11:F1           ; FullAdder    ; work         ;
+;          |FullAdder:\ist_add:12:F1|    ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|add:add1|FullAdder:\ist_add:12:F1           ; FullAdder    ; work         ;
+;          |FullAdder:\ist_add:14:F1|    ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|add:add1|FullAdder:\ist_add:14:F1           ; FullAdder    ; work         ;
+;          |FullAdder:\ist_add:1:F1|     ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|add:add1|FullAdder:\ist_add:1:F1            ; FullAdder    ; work         ;
+;          |FullAdder:\ist_add:2:F1|     ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|add:add1|FullAdder:\ist_add:2:F1            ; FullAdder    ; work         ;
+;          |FullAdder:\ist_add:3:F1|     ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|add:add1|FullAdder:\ist_add:3:F1            ; FullAdder    ; work         ;
+;          |FullAdder:\ist_add:4:F1|     ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|add:add1|FullAdder:\ist_add:4:F1            ; FullAdder    ; work         ;
+;          |FullAdder:\ist_add:5:F1|     ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|add:add1|FullAdder:\ist_add:5:F1            ; FullAdder    ; work         ;
+;          |FullAdder:\ist_add:6:F1|     ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|add:add1|FullAdder:\ist_add:6:F1            ; FullAdder    ; work         ;
+;          |FullAdder:\ist_add:8:F1|     ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|add:add1|FullAdder:\ist_add:8:F1            ; FullAdder    ; work         ;
+;          |FullAdder:\ist_add:9:F1|     ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|add:add1|FullAdder:\ist_add:9:F1            ; FullAdder    ; work         ;
+;       |subtractor:sub1|                ; 14 (0)      ; 0            ; 0          ; 0    ; 0            ; 14 (0)       ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|subtractor:sub1                             ; subtractor   ; work         ;
+;          |subtractor_2:\ist_sub:10:F1| ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|subtractor:sub1|subtractor_2:\ist_sub:10:F1 ; subtractor_2 ; work         ;
+;          |subtractor_2:\ist_sub:11:F1| ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|subtractor:sub1|subtractor_2:\ist_sub:11:F1 ; subtractor_2 ; work         ;
+;          |subtractor_2:\ist_sub:12:F1| ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|subtractor:sub1|subtractor_2:\ist_sub:12:F1 ; subtractor_2 ; work         ;
+;          |subtractor_2:\ist_sub:14:F1| ; 2 (2)       ; 0            ; 0          ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|subtractor:sub1|subtractor_2:\ist_sub:14:F1 ; subtractor_2 ; work         ;
+;          |subtractor_2:\ist_sub:1:F1|  ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|subtractor:sub1|subtractor_2:\ist_sub:1:F1  ; subtractor_2 ; work         ;
+;          |subtractor_2:\ist_sub:2:F1|  ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|subtractor:sub1|subtractor_2:\ist_sub:2:F1  ; subtractor_2 ; work         ;
+;          |subtractor_2:\ist_sub:3:F1|  ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|subtractor:sub1|subtractor_2:\ist_sub:3:F1  ; subtractor_2 ; work         ;
+;          |subtractor_2:\ist_sub:4:F1|  ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|subtractor:sub1|subtractor_2:\ist_sub:4:F1  ; subtractor_2 ; work         ;
+;          |subtractor_2:\ist_sub:5:F1|  ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|subtractor:sub1|subtractor_2:\ist_sub:5:F1  ; subtractor_2 ; work         ;
+;          |subtractor_2:\ist_sub:6:F1|  ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|subtractor:sub1|subtractor_2:\ist_sub:6:F1  ; subtractor_2 ; work         ;
+;          |subtractor_2:\ist_sub:7:F1|  ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|subtractor:sub1|subtractor_2:\ist_sub:7:F1  ; subtractor_2 ; work         ;
+;          |subtractor_2:\ist_sub:8:F1|  ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|subtractor:sub1|subtractor_2:\ist_sub:8:F1  ; subtractor_2 ; work         ;
+;          |subtractor_2:\ist_sub:9:F1|  ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|alu:alu1|subtractor:sub1|subtractor_2:\ist_sub:9:F1  ; subtractor_2 ; work         ;
+;    |memory:memory1|                    ; 750 (750)   ; 429          ; 0          ; 0    ; 0            ; 321 (321)    ; 272 (272)         ; 157 (157)        ; 0 (0)           ; 0 (0)      ; |datapath|memory:memory1                                       ; memory       ; work         ;
+;    |mux2_16bit:mux8|                   ; 13 (13)     ; 0            ; 0          ; 0    ; 0            ; 13 (13)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|mux2_16bit:mux8                                      ; mux2_16bit   ; work         ;
+;    |registers:instruction_register|    ; 13 (13)     ; 13           ; 0          ; 0    ; 0            ; 0 (0)        ; 13 (13)           ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|registers:instruction_register                       ; registers    ; work         ;
+;    |registers:t1|                      ; 16 (16)     ; 16           ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 16 (16)          ; 0 (0)           ; 0 (0)      ; |datapath|registers:t1                                         ; registers    ; work         ;
+;    |registers:t2|                      ; 16 (16)     ; 16           ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 16 (16)          ; 0 (0)           ; 0 (0)      ; |datapath|registers:t2                                         ; registers    ; work         ;
+;    |registers:t3|                      ; 16 (16)     ; 16           ; 0          ; 0    ; 0            ; 0 (0)        ; 16 (16)           ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |datapath|registers:t3                                         ; registers    ; work         ;
++----------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------------------------------------+--------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++-----------------------------------------+----------------------------------------+
+; Register name                           ; Reason for Removal                     ;
++-----------------------------------------+----------------------------------------+
+; rf:rf1|registers:\inst_reg:6:R|q[0..15] ; Stuck at GND due to stuck port data_in ;
+; rf:rf1|registers:\inst_reg:5:R|q[0..15] ; Stuck at GND due to stuck port data_in ;
+; rf:rf1|registers:\inst_reg:4:R|q[0..15] ; Stuck at GND due to stuck port data_in ;
+; rf:rf1|registers:\inst_reg:3:R|q[0..15] ; Stuck at GND due to stuck port data_in ;
+; rf:rf1|registers:\inst_reg:2:R|q[0..15] ; Stuck at GND due to stuck port data_in ;
+; rf:rf1|registers:\inst_reg:1:R|q[0..15] ; Stuck at GND due to stuck port data_in ;
+; rf:rf1|registers:\inst_reg:0:R|q[0..15] ; Stuck at GND due to stuck port data_in ;
+; registers:instruction_register|q[11]    ; Lost fanout                            ;
+; memory:memory1|memout[11]               ; Lost fanout                            ;
+; registers:instruction_register|q[10]    ; Lost fanout                            ;
+; memory:memory1|memout[10]               ; Lost fanout                            ;
+; registers:instruction_register|q[9]     ; Lost fanout                            ;
+; memory:memory1|memout[9]                ; Lost fanout                            ;
+; memory:memory1|RAM~31                   ; Lost fanout                            ;
+; memory:memory1|RAM~32                   ; Lost fanout                            ;
+; memory:memory1|RAM~33                   ; Lost fanout                            ;
+; memory:memory1|RAM~47                   ; Lost fanout                            ;
+; memory:memory1|RAM~48                   ; Lost fanout                            ;
+; memory:memory1|RAM~49                   ; Lost fanout                            ;
+; memory:memory1|RAM~63                   ; Lost fanout                            ;
+; memory:memory1|RAM~64                   ; Lost fanout                            ;
+; memory:memory1|RAM~65                   ; Lost fanout                            ;
+; memory:memory1|RAM~79                   ; Lost fanout                            ;
+; memory:memory1|RAM~80                   ; Lost fanout                            ;
+; memory:memory1|RAM~81                   ; Lost fanout                            ;
+; memory:memory1|RAM~95                   ; Lost fanout                            ;
+; memory:memory1|RAM~96                   ; Lost fanout                            ;
+; memory:memory1|RAM~97                   ; Lost fanout                            ;
+; memory:memory1|RAM~111                  ; Lost fanout                            ;
+; memory:memory1|RAM~112                  ; Lost fanout                            ;
+; memory:memory1|RAM~113                  ; Lost fanout                            ;
+; memory:memory1|RAM~127                  ; Lost fanout                            ;
+; memory:memory1|RAM~128                  ; Lost fanout                            ;
+; memory:memory1|RAM~129                  ; Lost fanout                            ;
+; memory:memory1|RAM~143                  ; Lost fanout                            ;
+; memory:memory1|RAM~144                  ; Lost fanout                            ;
+; memory:memory1|RAM~145                  ; Lost fanout                            ;
+; memory:memory1|RAM~159                  ; Lost fanout                            ;
+; memory:memory1|RAM~160                  ; Lost fanout                            ;
+; memory:memory1|RAM~161                  ; Lost fanout                            ;
+; memory:memory1|RAM~175                  ; Lost fanout                            ;
+; memory:memory1|RAM~176                  ; Lost fanout                            ;
+; memory:memory1|RAM~177                  ; Lost fanout                            ;
+; memory:memory1|RAM~191                  ; Lost fanout                            ;
+; memory:memory1|RAM~192                  ; Lost fanout                            ;
+; memory:memory1|RAM~193                  ; Lost fanout                            ;
+; memory:memory1|RAM~207                  ; Lost fanout                            ;
+; memory:memory1|RAM~208                  ; Lost fanout                            ;
+; memory:memory1|RAM~209                  ; Lost fanout                            ;
+; memory:memory1|RAM~223                  ; Lost fanout                            ;
+; memory:memory1|RAM~224                  ; Lost fanout                            ;
+; memory:memory1|RAM~225                  ; Lost fanout                            ;
+; memory:memory1|RAM~239                  ; Lost fanout                            ;
+; memory:memory1|RAM~240                  ; Lost fanout                            ;
+; memory:memory1|RAM~241                  ; Lost fanout                            ;
+; memory:memory1|RAM~255                  ; Lost fanout                            ;
+; memory:memory1|RAM~256                  ; Lost fanout                            ;
+; memory:memory1|RAM~257                  ; Lost fanout                            ;
+; memory:memory1|RAM~271                  ; Lost fanout                            ;
+; memory:memory1|RAM~272                  ; Lost fanout                            ;
+; memory:memory1|RAM~273                  ; Lost fanout                            ;
+; memory:memory1|RAM~287                  ; Lost fanout                            ;
+; memory:memory1|RAM~288                  ; Lost fanout                            ;
+; memory:memory1|RAM~289                  ; Lost fanout                            ;
+; memory:memory1|RAM~303                  ; Lost fanout                            ;
+; memory:memory1|RAM~304                  ; Lost fanout                            ;
+; memory:memory1|RAM~305                  ; Lost fanout                            ;
+; memory:memory1|RAM~319                  ; Lost fanout                            ;
+; memory:memory1|RAM~320                  ; Lost fanout                            ;
+; memory:memory1|RAM~321                  ; Lost fanout                            ;
+; memory:memory1|RAM~335                  ; Lost fanout                            ;
+; memory:memory1|RAM~336                  ; Lost fanout                            ;
+; memory:memory1|RAM~337                  ; Lost fanout                            ;
+; memory:memory1|RAM~351                  ; Lost fanout                            ;
+; memory:memory1|RAM~352                  ; Lost fanout                            ;
+; memory:memory1|RAM~353                  ; Lost fanout                            ;
+; memory:memory1|RAM~367                  ; Lost fanout                            ;
+; memory:memory1|RAM~368                  ; Lost fanout                            ;
+; memory:memory1|RAM~369                  ; Lost fanout                            ;
+; memory:memory1|RAM~383                  ; Lost fanout                            ;
+; memory:memory1|RAM~384                  ; Lost fanout                            ;
+; memory:memory1|RAM~385                  ; Lost fanout                            ;
+; memory:memory1|RAM~399                  ; Lost fanout                            ;
+; memory:memory1|RAM~400                  ; Lost fanout                            ;
+; memory:memory1|RAM~401                  ; Lost fanout                            ;
+; memory:memory1|RAM~415                  ; Lost fanout                            ;
+; memory:memory1|RAM~416                  ; Lost fanout                            ;
+; memory:memory1|RAM~417                  ; Lost fanout                            ;
+; memory:memory1|RAM~431                  ; Lost fanout                            ;
+; memory:memory1|RAM~432                  ; Lost fanout                            ;
+; memory:memory1|RAM~433                  ; Lost fanout                            ;
+; memory:memory1|RAM~447                  ; Lost fanout                            ;
+; memory:memory1|RAM~448                  ; Lost fanout                            ;
+; memory:memory1|RAM~449                  ; Lost fanout                            ;
+; memory:memory1|RAM~463                  ; Lost fanout                            ;
+; memory:memory1|RAM~464                  ; Lost fanout                            ;
+; memory:memory1|RAM~465                  ; Lost fanout                            ;
+; memory:memory1|RAM~479                  ; Lost fanout                            ;
+; memory:memory1|RAM~480                  ; Lost fanout                            ;
+; memory:memory1|RAM~481                  ; Lost fanout                            ;
+; memory:memory1|RAM~495                  ; Lost fanout                            ;
+; memory:memory1|RAM~496                  ; Lost fanout                            ;
+; memory:memory1|RAM~497                  ; Lost fanout                            ;
+; memory:memory1|RAM~511                  ; Lost fanout                            ;
+; memory:memory1|RAM~512                  ; Lost fanout                            ;
+; memory:memory1|RAM~513                  ; Lost fanout                            ;
+; memory:memory1|RAM~527                  ; Lost fanout                            ;
+; memory:memory1|RAM~528                  ; Lost fanout                            ;
+; memory:memory1|RAM~529                  ; Lost fanout                            ;
+; Total Number of Removed Registers = 214 ;                                        ;
++-----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                        ;
++-------------------------------------+---------------------------+------------------------------------------------------------------+
+; Register name                       ; Reason for Removal        ; Registers Removed due to This Register                           ;
++-------------------------------------+---------------------------+------------------------------------------------------------------+
+; rf:rf1|registers:\inst_reg:6:R|q[0] ; Stuck at GND              ; registers:instruction_register|q[11], memory:memory1|memout[11], ;
+;                                     ; due to stuck port data_in ; registers:instruction_register|q[10], memory:memory1|memout[10], ;
+;                                     ;                           ; registers:instruction_register|q[9], memory:memory1|memout[9]    ;
++-------------------------------------+---------------------------+------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 522   ;
+; Number of registers using Synchronous Clear  ; 16    ;
+; Number of registers using Synchronous Load   ; 16    ;
+; Number of registers using Asynchronous Clear ; 93    ;
+; Number of registers using Asynchronous Load  ; 13    ;
+; Number of registers using Clock Enable       ; 461   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
+; 1:1                ; 16 bits   ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; Yes        ; |datapath|registers:t3|q[13] ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |datapath|R7:PC|q[9]         ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |datapath|Mux_4:mux4_1|Mux12 ;
+; 4:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |datapath|alu:alu1|Mux11     ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 14 LEs               ; 21 LEs                 ; No         ; |datapath|Mux_8:mux8_1|Mux9  ;
+; 8:1                ; 9 bits    ; 45 LEs        ; 27 LEs               ; 18 LEs                 ; No         ; |datapath|Mux_8:mux8_1|Mux1  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |datapath|Mux_8:mux8_2|Mux13 ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 6 LEs                ; 9 LEs                  ; No         ; |datapath|Mux_8:mux8_2|Mux2  ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |datapath|Mux_8:mux8_2|Mux6  ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |datapath|Mux_8:mux8_2|Mux8  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
+
+
++------------------------------------------+
+; Port Connectivity Checks: "Mux_4:mux4_1" ;
++------+-------+----------+----------------+
+; Port ; Type  ; Severity ; Details        ;
++------+-------+----------+----------------+
+; d    ; Input ; Info     ; Stuck at GND   ;
++------+-------+----------+----------------+
+
+
++------------------------------------------+
+; Port Connectivity Checks: "Mux_4:mux4_2" ;
++------+-------+----------+----------------+
+; Port ; Type  ; Severity ; Details        ;
++------+-------+----------+----------------+
+; d    ; Input ; Info     ; Stuck at GND   ;
++------+-------+----------+----------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "registers:num"                                                                      ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; q    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "mux2_16bit:mux7" ;
++----------+-------+----------+---------------+
+; Port     ; Type  ; Severity ; Details       ;
++----------+-------+----------+---------------+
+; a[15..1] ; Input ; Info     ; Stuck at GND  ;
+; a[0]     ; Input ; Info     ; Stuck at VCC  ;
++----------+-------+----------+---------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "alu:alu1|subtractor:sub1|subtractor_2:F0" ;
++------+-------+----------+--------------------------------------------+
+; Port ; Type  ; Severity ; Details                                    ;
++------+-------+----------+--------------------------------------------+
+; c    ; Input ; Info     ; Stuck at GND                               ;
++------+-------+----------+--------------------------------------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "alu:alu1|add:add1|FullAdder:F0" ;
++------+-------+----------+----------------------------------+
+; Port ; Type  ; Severity ; Details                          ;
++------+-------+----------+----------------------------------+
+; cin  ; Input ; Info     ; Stuck at GND                     ;
++------+-------+----------+----------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu:alu1"                                                                           ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; cout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "Mux_8:mux8_2"   ;
++----------+-------+----------+--------------+
+; Port     ; Type  ; Severity ; Details      ;
++----------+-------+----------+--------------+
+; b        ; Input ; Info     ; Stuck at GND ;
+; d[15..1] ; Input ; Info     ; Stuck at GND ;
+; d[0]     ; Input ; Info     ; Stuck at VCC ;
+; f        ; Input ; Info     ; Stuck at GND ;
+; g        ; Input ; Info     ; Stuck at GND ;
+; h        ; Input ; Info     ; Stuck at GND ;
++----------+-------+----------+--------------+
+
+
++------------------------------------------+
+; Port Connectivity Checks: "Mux_8:mux8_1" ;
++------+-------+----------+----------------+
+; Port ; Type  ; Severity ; Details        ;
++------+-------+----------+----------------+
+; g    ; Input ; Info     ; Stuck at GND   ;
+; h    ; Input ; Info     ; Stuck at GND   ;
++------+-------+----------+----------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "Mux_4:mux6"     ;
++----------+-------+----------+--------------+
+; Port     ; Type  ; Severity ; Details      ;
++----------+-------+----------+--------------+
+; c[15..1] ; Input ; Info     ; Stuck at GND ;
+; c[0]     ; Input ; Info     ; Stuck at VCC ;
+; d        ; Input ; Info     ; Stuck at GND ;
++----------+-------+----------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Tue May 03 12:34:02 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISC_1 -c RISC_1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file or.vhd
+    Info (12022): Found design unit 1: OR_16-Struct File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/or.vhd Line: 13
+    Info (12023): Found entity 1: OR_16 File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/or.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file nand.vhd
+    Info (12022): Found design unit 1: Nand_16-Struct File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/nand.vhd Line: 13
+    Info (12023): Found entity 1: Nand_16 File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/nand.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file 1_bit_adder.vhd
+    Info (12022): Found design unit 1: FullAdder-Struct File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/1_bit_adder.vhd Line: 11
+    Info (12023): Found entity 1: FullAdder File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/1_bit_adder.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file 16_bit adder.vhd
+    Info (12022): Found design unit 1: add-behavioural File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/16_bit adder.vhd Line: 15
+    Info (12023): Found entity 1: add File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/16_bit adder.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
+    Info (12022): Found design unit 1: alu-behavioural File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/alu.vhd Line: 19
+    Info (12023): Found entity 1: alu File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/alu.vhd Line: 11
+Info (12021): Found 2 design units, including 1 entities, in source file subractor.vhd
+    Info (12022): Found design unit 1: subtractor-behavioural File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/subractor.vhd Line: 14
+    Info (12023): Found entity 1: subtractor File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/subractor.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file 1_bit_subtractor.vhd
+    Info (12022): Found design unit 1: subtractor_2-dataflow File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/1_bit_subtractor.vhd Line: 13
+    Info (12023): Found entity 1: subtractor_2 File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/1_bit_subtractor.vhd Line: 7
+Info (12021): Found 1 design units, including 0 entities, in source file alu_comp.vhd
+    Info (12022): Found design unit 1: alu_comp File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/alu_comp.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file shift_7.vhd
+    Info (12022): Found design unit 1: Shift7-Struct File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/shift_7.vhd Line: 12
+    Info (12023): Found entity 1: Shift7 File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/shift_7.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file shift_1.vhd
+    Info (12022): Found design unit 1: shift1-beh File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/shift_1.vhd Line: 13
+    Info (12023): Found entity 1: shift1 File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/shift_1.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file sign_extend.vhd
+    Info (12022): Found design unit 1: sign_extend-basic File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/sign_extend.vhd Line: 13
+    Info (12023): Found entity 1: sign_extend File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/sign_extend.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file memory.vhd
+    Info (12022): Found design unit 1: memory-mem File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/memory.vhd Line: 18
+    Info (12023): Found entity 1: memory File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/memory.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file register.vhd
+    Info (12022): Found design unit 1: registers-reg_arch File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/register.vhd Line: 14
+    Info (12023): Found entity 1: registers File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/register.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file rf.vhd
+    Info (12022): Found design unit 1: rf-behave File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/rf.vhd Line: 19
+    Info (12023): Found entity 1: rf File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/rf.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file r7.vhd
+    Info (12022): Found design unit 1: R7-behave File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/R7.vhd Line: 17
+    Info (12023): Found entity 1: R7 File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/R7.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file datapath.vhd
+    Info (12022): Found design unit 1: datapath-datapath1 File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 20
+    Info (12023): Found entity 1: datapath File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 10
+Info (12021): Found 1 design units, including 0 entities, in source file components.vhd
+    Info (12022): Found design unit 1: components File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/components.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file 2_mux.vhd
+    Info (12022): Found design unit 1: Mux_2-beh File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/2_mux.vhd Line: 13
+    Info (12023): Found entity 1: Mux_2 File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/2_mux.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file 2mux_16bit.vhd
+    Info (12022): Found design unit 1: Mux2_16bit-beh File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/2mux_16bit.vhd Line: 13
+    Info (12023): Found entity 1: mux2_16bit File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/2mux_16bit.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file mux8.vhd
+    Info (12022): Found design unit 1: Mux_8-beh File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/mux8.vhd Line: 13
+    Info (12023): Found entity 1: Mux_8 File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/mux8.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file mux4.vhd
+    Info (12022): Found design unit 1: Mux_4-beh File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/mux4.vhd Line: 13
+    Info (12023): Found entity 1: Mux_4 File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/mux4.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file mux2_se.vhd
+    Info (12022): Found design unit 1: Mux_2_sign-beh File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/mux2_se.vhd Line: 14
+    Info (12023): Found entity 1: Mux_2_sign File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/mux2_se.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file bit16to3.vhd
+    Info (12022): Found design unit 1: bit_16_to_3-beh File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/bit16to3.vhd Line: 11
+    Info (12023): Found entity 1: bit_16_to_3 File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/bit16to3.vhd Line: 6
+Info (12127): Elaborating entity "datapath" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at datapath.vhd(14): used implicit default value for signal "finish" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 14
+Warning (10541): VHDL Signal Declaration warning at datapath.vhd(16): used implicit default value for signal "S" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 16
+Warning (10541): VHDL Signal Declaration warning at datapath.vhd(17): used implicit default value for signal "P0" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 17
+Warning (10541): VHDL Signal Declaration warning at datapath.vhd(24): used implicit default value for signal "rfd3out" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 24
+Warning (10541): VHDL Signal Declaration warning at datapath.vhd(26): used implicit default value for signal "memdout" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 26
+Warning (10036): Verilog HDL or VHDL warning at datapath.vhd(26): object "numout" assigned a value but never read File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 26
+Warning (10036): Verilog HDL or VHDL warning at datapath.vhd(27): object "Z" assigned a value but never read File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 27
+Info (12128): Elaborating entity "registers" for hierarchy "registers:instruction_register" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 58
+Info (12128): Elaborating entity "rf" for hierarchy "rf:rf1" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 60
+Warning (10492): VHDL Process Statement warning at rf.vhd(71): signal "registers1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/rf.vhd Line: 71
+Warning (10492): VHDL Process Statement warning at rf.vhd(72): signal "registers1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/rf.vhd Line: 72
+Warning (10873): Using initial value X (don't care) for net "registers1[7]" at rf.vhd(42) File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/rf.vhd Line: 42
+Info (12128): Elaborating entity "Mux_2" for hierarchy "Mux_2:mux2" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 64
+Info (12128): Elaborating entity "mux2_16bit" for hierarchy "mux2_16bit:mux4" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 69
+Info (12128): Elaborating entity "Mux_4" for hierarchy "Mux_4:mux6" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 71
+Info (12128): Elaborating entity "Mux_8" for hierarchy "Mux_8:mux8_1" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 84
+Info (12128): Elaborating entity "alu" for hierarchy "alu:alu1" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 89
+Warning (10631): VHDL Process Statement warning at alu.vhd(37): inferring latch(es) for signal or variable "Cout", which holds its previous value in one or more paths through the process File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/alu.vhd Line: 37
+Info (10041): Inferred latch for "Cout" at alu.vhd(37) File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/alu.vhd Line: 37
+Info (12128): Elaborating entity "add" for hierarchy "alu:alu1|add:add1" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/alu.vhd Line: 32
+Info (12128): Elaborating entity "FullAdder" for hierarchy "alu:alu1|add:add1|FullAdder:F0" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/16_bit adder.vhd Line: 26
+Info (12128): Elaborating entity "subtractor" for hierarchy "alu:alu1|subtractor:sub1" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/alu.vhd Line: 33
+Info (12128): Elaborating entity "subtractor_2" for hierarchy "alu:alu1|subtractor:sub1|subtractor_2:F0" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/subractor.vhd Line: 25
+Info (12128): Elaborating entity "Nand_16" for hierarchy "alu:alu1|Nand_16:nand1" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/alu.vhd Line: 34
+Info (12128): Elaborating entity "OR_16" for hierarchy "alu:alu1|OR_16:or1" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/alu.vhd Line: 35
+Info (12128): Elaborating entity "Mux_2_sign" for hierarchy "Mux_2_sign:se" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 98
+Info (12128): Elaborating entity "shift1" for hierarchy "shift1:shifter1" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 101
+Info (12128): Elaborating entity "Shift7" for hierarchy "Shift7:shifter7" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 103
+Info (12128): Elaborating entity "R7" for hierarchy "R7:PC" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 110
+Info (12128): Elaborating entity "memory" for hierarchy "memory:memory1" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 121
+Warning (10492): VHDL Process Statement warning at memory.vhd(35): signal "RAM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/memory.vhd Line: 35
+Info (12128): Elaborating entity "bit_16_to_3" for hierarchy "bit_16_to_3:bit1" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 123
+Warning (10492): VHDL Process Statement warning at bit16to3.vhd(44): signal "output1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/bit16to3.vhd Line: 44
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "finish" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 14
+    Warning (13410): Pin "S[0]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 16
+    Warning (13410): Pin "S[1]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 16
+    Warning (13410): Pin "S[2]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 16
+    Warning (13410): Pin "S[3]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 16
+    Warning (13410): Pin "S[4]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 16
+    Warning (13410): Pin "S[5]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 16
+    Warning (13410): Pin "P0[0]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 17
+    Warning (13410): Pin "P0[1]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 17
+    Warning (13410): Pin "P0[2]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 17
+    Warning (13410): Pin "P0[3]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 17
+    Warning (13410): Pin "P0[4]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 17
+    Warning (13410): Pin "P0[5]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 17
+    Warning (13410): Pin "P0[6]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 17
+    Warning (13410): Pin "P0[7]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 17
+    Warning (13410): Pin "P0[8]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 17
+    Warning (13410): Pin "P0[9]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 17
+    Warning (13410): Pin "P0[10]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 17
+    Warning (13410): Pin "P0[11]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 17
+    Warning (13410): Pin "P0[12]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 17
+    Warning (13410): Pin "P0[13]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 17
+    Warning (13410): Pin "P0[14]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 17
+    Warning (13410): Pin "P0[15]" is stuck at GND File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 17
+Info (17049): 102 registers lost all their fanouts during netlist optimizations.
+Warning (21074): Design contains 12 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "RX" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 13
+    Warning (15610): No output dependent on input pin "start" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 13
+    Warning (15610): No output dependent on input pin "T[0]" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 15
+    Warning (15610): No output dependent on input pin "T[3]" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 15
+    Warning (15610): No output dependent on input pin "T[4]" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 15
+    Warning (15610): No output dependent on input pin "T[5]" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 15
+    Warning (15610): No output dependent on input pin "T[9]" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 15
+    Warning (15610): No output dependent on input pin "T[24]" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 15
+    Warning (15610): No output dependent on input pin "T[28]" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 15
+    Warning (15610): No output dependent on input pin "T[29]" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 15
+    Warning (15610): No output dependent on input pin "T[1]" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 15
+    Warning (15610): No output dependent on input pin "T[8]" File: G:/IITB_Acads/sem-4/EE309/IITB_RISC/folder/datapath.vhd Line: 15
+Info (21057): Implemented 1068 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 34 input pins
+    Info (21059): Implemented 29 output pins
+    Info (21061): Implemented 1005 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 51 warnings
+    Info: Peak virtual memory: 4766 megabytes
+    Info: Processing ended: Tue May 03 12:34:12 2022
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:22
+
+

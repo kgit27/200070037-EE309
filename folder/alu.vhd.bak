@@ -1,0 +1,17 @@
+library std;
+use std.standard.all;
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity alu is
+	port( alu_a, alu_b: in std_logic_vector(15 downto 0);
+	      op: in std_logic_vector(2 downto 0);
+			alu_out: out std_logic_vector(15 downto 0);
+			Cout: out std_logic);
+			
+end entity;
+
+architecture behavioural of alu is
+
+process 

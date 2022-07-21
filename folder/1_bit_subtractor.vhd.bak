@@ -1,0 +1,19 @@
+library std;
+use std.standard.all;
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity subractor is
+port( A, B, C : in std_logic;
+DIFF, Borrow : out std_logic);
+end entity;	
+	
+	
+architecture dataflow of full_sub is
+begin
+
+DIFF <= (A xor B) xor C;
+Borrow <= ((not A) and (B or C)) or (B and C);
+
+end dataflow;

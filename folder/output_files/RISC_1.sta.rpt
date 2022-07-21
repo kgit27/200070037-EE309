@@ -1,0 +1,797 @@
+Timing Analyzer report for RISC_1
+Tue May 03 12:34:26 2022
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'clock'
+ 12. Hold: 'clock'
+ 13. Recovery: 'clock'
+ 14. Removal: 'clock'
+ 15. Setup Transfers
+ 16. Hold Transfers
+ 17. Recovery Transfers
+ 18. Removal Transfers
+ 19. Report TCCS
+ 20. Report RSKM
+ 21. Unconstrained Paths Summary
+ 22. Clock Status Summary
+ 23. Unconstrained Input Ports
+ 24. Unconstrained Output Ports
+ 25. Unconstrained Input Ports
+ 26. Unconstrained Output Ports
+ 27. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; RISC_1                                              ;
+; Device Family         ; MAX V                                               ;
+; Device Name           ; 5M1270ZT144C5                                       ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Slow Model                                          ;
+; Rise/Fall Delays      ; Unavailable                                         ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                            ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets   ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
+; clock      ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clock } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
+
+
++-------------------------------------------------+
+; Fmax Summary                                    ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 53.67 MHz ; 53.67 MHz       ; clock      ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++---------------------------------+
+; Setup Summary                   ;
++-------+---------+---------------+
+; Clock ; Slack   ; End Point TNS ;
++-------+---------+---------------+
+; clock ; -17.633 ; -6014.118     ;
++-------+---------+---------------+
+
+
++-------------------------------+
+; Hold Summary                  ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clock ; 1.377 ; 0.000         ;
++-------+-------+---------------+
+
+
++---------------------------------+
+; Recovery Summary                ;
++-------+---------+---------------+
+; Clock ; Slack   ; End Point TNS ;
++-------+---------+---------------+
+; clock ; -13.196 ; -163.939      ;
++-------+---------+---------------+
+
+
++-------------------------------+
+; Removal Summary               ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clock ; 4.837 ; 0.000         ;
++-------+-------+---------------+
+
+
++--------------------------------+
+; Minimum Pulse Width Summary    ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clock ; -2.289 ; -2.289        ;
++-------+--------+---------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clock'                                                                                                                           ;
++---------+-------------------------------------+--------------------+--------------+-------------+--------------+------------+------------+
+; Slack   ; From Node                           ; To Node            ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++---------+-------------------------------------+--------------------+--------------+-------------+--------------+------------+------------+
+; -17.633 ; R7:PC|q[0]                          ; R7:PC|q[14]        ; clock        ; clock       ; 1.000        ; 0.000      ; 18.300     ;
+; -17.630 ; R7:PC|q[0]                          ; registers:t2|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 18.297     ;
+; -17.549 ; R7:PC|q[0]                          ; registers:t2|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 18.216     ;
+; -17.548 ; R7:PC|q[0]                          ; registers:t1|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 18.215     ;
+; -17.455 ; registers:t2|q[0]                   ; R7:PC|q[14]        ; clock        ; clock       ; 1.000        ; 0.000      ; 18.122     ;
+; -17.452 ; registers:t2|q[0]                   ; registers:t2|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 18.119     ;
+; -17.371 ; registers:t2|q[0]                   ; registers:t2|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 18.038     ;
+; -17.370 ; registers:t2|q[0]                   ; registers:t1|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 18.037     ;
+; -17.331 ; registers:t1|q[0]                   ; R7:PC|q[14]        ; clock        ; clock       ; 1.000        ; 0.000      ; 17.998     ;
+; -17.328 ; registers:t1|q[0]                   ; registers:t2|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.995     ;
+; -17.247 ; registers:t1|q[0]                   ; registers:t2|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.914     ;
+; -17.246 ; registers:t1|q[0]                   ; registers:t1|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.913     ;
+; -17.182 ; R7:PC|q[0]                          ; registers:t1|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.849     ;
+; -17.097 ; R7:PC|q[0]                          ; R7:PC|q[13]        ; clock        ; clock       ; 1.000        ; 0.000      ; 17.764     ;
+; -17.091 ; R7:PC|q[0]                          ; registers:t2|q[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.758     ;
+; -17.004 ; registers:t2|q[0]                   ; registers:t1|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.671     ;
+; -16.919 ; registers:t2|q[0]                   ; R7:PC|q[13]        ; clock        ; clock       ; 1.000        ; 0.000      ; 17.586     ;
+; -16.913 ; registers:t2|q[0]                   ; registers:t2|q[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.580     ;
+; -16.880 ; registers:t1|q[0]                   ; registers:t1|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.547     ;
+; -16.857 ; R7:PC|q[0]                          ; R7:PC|q[15]        ; clock        ; clock       ; 1.000        ; 0.000      ; 17.524     ;
+; -16.843 ; R7:PC|q[2]                          ; R7:PC|q[14]        ; clock        ; clock       ; 1.000        ; 0.000      ; 17.510     ;
+; -16.840 ; R7:PC|q[2]                          ; registers:t2|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.507     ;
+; -16.795 ; registers:t1|q[0]                   ; R7:PC|q[13]        ; clock        ; clock       ; 1.000        ; 0.000      ; 17.462     ;
+; -16.789 ; registers:t1|q[0]                   ; registers:t2|q[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.456     ;
+; -16.759 ; R7:PC|q[2]                          ; registers:t2|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.426     ;
+; -16.758 ; R7:PC|q[2]                          ; registers:t1|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.425     ;
+; -16.727 ; registers:t1|q[2]                   ; R7:PC|q[14]        ; clock        ; clock       ; 1.000        ; 0.000      ; 17.394     ;
+; -16.724 ; registers:t1|q[2]                   ; registers:t2|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.391     ;
+; -16.679 ; registers:t2|q[0]                   ; R7:PC|q[15]        ; clock        ; clock       ; 1.000        ; 0.000      ; 17.346     ;
+; -16.677 ; R7:PC|q[0]                          ; registers:t3|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.344     ;
+; -16.643 ; registers:t1|q[2]                   ; registers:t2|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.310     ;
+; -16.642 ; registers:t1|q[2]                   ; registers:t1|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.309     ;
+; -16.641 ; R7:PC|q[0]                          ; registers:t1|q[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.308     ;
+; -16.555 ; registers:t1|q[0]                   ; R7:PC|q[15]        ; clock        ; clock       ; 1.000        ; 0.000      ; 17.222     ;
+; -16.514 ; registers:instruction_register|q[0] ; R7:PC|q[14]        ; clock        ; clock       ; 1.000        ; 0.000      ; 17.181     ;
+; -16.511 ; registers:instruction_register|q[0] ; registers:t2|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.178     ;
+; -16.510 ; registers:t1|q[1]                   ; R7:PC|q[14]        ; clock        ; clock       ; 1.000        ; 0.000      ; 17.177     ;
+; -16.507 ; registers:t1|q[1]                   ; registers:t2|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.174     ;
+; -16.499 ; registers:t2|q[0]                   ; registers:t3|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.166     ;
+; -16.480 ; registers:t2|q[2]                   ; R7:PC|q[14]        ; clock        ; clock       ; 1.000        ; 0.000      ; 17.147     ;
+; -16.477 ; registers:t2|q[2]                   ; registers:t2|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.144     ;
+; -16.463 ; registers:t2|q[0]                   ; registers:t1|q[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.130     ;
+; -16.463 ; R7:PC|q[1]                          ; R7:PC|q[14]        ; clock        ; clock       ; 1.000        ; 0.000      ; 17.130     ;
+; -16.460 ; R7:PC|q[1]                          ; registers:t2|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.127     ;
+; -16.430 ; registers:instruction_register|q[0] ; registers:t2|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.097     ;
+; -16.429 ; registers:instruction_register|q[0] ; registers:t1|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.096     ;
+; -16.426 ; registers:t1|q[1]                   ; registers:t2|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.093     ;
+; -16.425 ; registers:t1|q[1]                   ; registers:t1|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.092     ;
+; -16.396 ; registers:t2|q[2]                   ; registers:t2|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.063     ;
+; -16.395 ; registers:t2|q[2]                   ; registers:t1|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.062     ;
+; -16.392 ; R7:PC|q[2]                          ; registers:t1|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.059     ;
+; -16.379 ; R7:PC|q[1]                          ; registers:t2|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.046     ;
+; -16.378 ; R7:PC|q[1]                          ; registers:t1|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.045     ;
+; -16.375 ; registers:t1|q[0]                   ; registers:t3|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.042     ;
+; -16.352 ; R7:PC|q[0]                          ; registers:t3|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.019     ;
+; -16.339 ; registers:t1|q[0]                   ; registers:t1|q[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 17.006     ;
+; -16.307 ; R7:PC|q[2]                          ; R7:PC|q[13]        ; clock        ; clock       ; 1.000        ; 0.000      ; 16.974     ;
+; -16.301 ; R7:PC|q[2]                          ; registers:t2|q[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.968     ;
+; -16.276 ; registers:t1|q[2]                   ; registers:t1|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.943     ;
+; -16.191 ; registers:t1|q[2]                   ; R7:PC|q[13]        ; clock        ; clock       ; 1.000        ; 0.000      ; 16.858     ;
+; -16.185 ; registers:t1|q[2]                   ; registers:t2|q[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.852     ;
+; -16.174 ; registers:t2|q[0]                   ; registers:t3|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.841     ;
+; -16.136 ; R7:PC|q[0]                          ; registers:t3|q[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.803     ;
+; -16.092 ; registers:t2|q[3]                   ; registers:t2|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.759     ;
+; -16.091 ; registers:t2|q[3]                   ; registers:t1|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.758     ;
+; -16.067 ; R7:PC|q[2]                          ; R7:PC|q[15]        ; clock        ; clock       ; 1.000        ; 0.000      ; 16.734     ;
+; -16.063 ; registers:instruction_register|q[0] ; registers:t1|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.730     ;
+; -16.059 ; registers:t1|q[1]                   ; registers:t1|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.726     ;
+; -16.050 ; registers:t1|q[0]                   ; registers:t3|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.717     ;
+; -16.031 ; registers:t2|q[3]                   ; R7:PC|q[14]        ; clock        ; clock       ; 1.000        ; 0.000      ; 16.698     ;
+; -16.029 ; registers:t2|q[2]                   ; registers:t1|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.696     ;
+; -16.028 ; registers:t2|q[3]                   ; registers:t2|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.695     ;
+; -16.012 ; R7:PC|q[1]                          ; registers:t1|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.679     ;
+; -16.008 ; registers:t2|q[1]                   ; R7:PC|q[14]        ; clock        ; clock       ; 1.000        ; 0.000      ; 16.675     ;
+; -16.005 ; registers:t2|q[1]                   ; registers:t2|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.672     ;
+; -15.978 ; registers:instruction_register|q[0] ; R7:PC|q[13]        ; clock        ; clock       ; 1.000        ; 0.000      ; 16.645     ;
+; -15.974 ; registers:t1|q[1]                   ; R7:PC|q[13]        ; clock        ; clock       ; 1.000        ; 0.000      ; 16.641     ;
+; -15.972 ; registers:instruction_register|q[0] ; registers:t2|q[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.639     ;
+; -15.968 ; registers:t1|q[1]                   ; registers:t2|q[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.635     ;
+; -15.958 ; registers:t2|q[0]                   ; registers:t3|q[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.625     ;
+; -15.951 ; registers:t1|q[2]                   ; R7:PC|q[15]        ; clock        ; clock       ; 1.000        ; 0.000      ; 16.618     ;
+; -15.944 ; registers:t2|q[2]                   ; R7:PC|q[13]        ; clock        ; clock       ; 1.000        ; 0.000      ; 16.611     ;
+; -15.938 ; registers:t2|q[2]                   ; registers:t2|q[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.605     ;
+; -15.927 ; R7:PC|q[1]                          ; R7:PC|q[13]        ; clock        ; clock       ; 1.000        ; 0.000      ; 16.594     ;
+; -15.924 ; registers:t2|q[1]                   ; registers:t2|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.591     ;
+; -15.923 ; registers:t2|q[1]                   ; registers:t1|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.590     ;
+; -15.921 ; R7:PC|q[1]                          ; registers:t2|q[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.588     ;
+; -15.887 ; R7:PC|q[2]                          ; registers:t3|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.554     ;
+; -15.885 ; R7:PC|q[6]                          ; R7:PC|q[14]        ; clock        ; clock       ; 1.000        ; 0.000      ; 16.552     ;
+; -15.882 ; R7:PC|q[6]                          ; registers:t2|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.549     ;
+; -15.851 ; R7:PC|q[2]                          ; registers:t1|q[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.518     ;
+; -15.834 ; registers:t1|q[0]                   ; registers:t3|q[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.501     ;
+; -15.827 ; R7:PC|q[3]                          ; R7:PC|q[14]        ; clock        ; clock       ; 1.000        ; 0.000      ; 16.494     ;
+; -15.824 ; R7:PC|q[3]                          ; registers:t2|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.491     ;
+; -15.801 ; R7:PC|q[6]                          ; registers:t2|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.468     ;
+; -15.800 ; R7:PC|q[6]                          ; registers:t1|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.467     ;
+; -15.771 ; registers:t1|q[2]                   ; registers:t3|q[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.438     ;
+; -15.743 ; R7:PC|q[3]                          ; registers:t2|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.410     ;
+; -15.742 ; R7:PC|q[3]                          ; registers:t1|q[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 16.409     ;
+; -15.738 ; registers:instruction_register|q[0] ; R7:PC|q[15]        ; clock        ; clock       ; 1.000        ; 0.000      ; 16.405     ;
++---------+-------------------------------------+--------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clock'                                                                                                                                            ;
++-------+-------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                           ; To Node                              ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+; 1.377 ; memory:memory1|memout[15]           ; registers:instruction_register|q[15] ; clock        ; clock       ; 0.000        ; 0.000      ; 1.598      ;
+; 1.387 ; registers:t3|q[7]                   ; R7:PC|q[7]                           ; clock        ; clock       ; 0.000        ; 0.000      ; 1.608      ;
+; 1.393 ; memory:memory1|memout[14]           ; registers:instruction_register|q[14] ; clock        ; clock       ; 0.000        ; 0.000      ; 1.614      ;
+; 1.644 ; memory:memory1|memout[12]           ; registers:instruction_register|q[12] ; clock        ; clock       ; 0.000        ; 0.000      ; 1.865      ;
+; 1.644 ; memory:memory1|memout[13]           ; registers:instruction_register|q[13] ; clock        ; clock       ; 0.000        ; 0.000      ; 1.865      ;
+; 1.781 ; registers:t3|q[9]                   ; R7:PC|q[9]                           ; clock        ; clock       ; 0.000        ; 0.000      ; 2.002      ;
+; 1.802 ; R7:PC|q[7]                          ; R7:PC1|q[7]                          ; clock        ; clock       ; 0.000        ; 0.000      ; 2.023      ;
+; 1.806 ; registers:t3|q[14]                  ; R7:PC|q[14]                          ; clock        ; clock       ; 0.000        ; 0.000      ; 2.027      ;
+; 1.906 ; registers:t3|q[0]                   ; memory:memory1|RAM~310               ; clock        ; clock       ; 0.000        ; 0.000      ; 2.127      ;
+; 2.121 ; registers:t2|q[9]                   ; R7:PC|q[9]                           ; clock        ; clock       ; 0.000        ; 0.000      ; 2.342      ;
+; 2.125 ; registers:t2|q[15]                  ; R7:PC|q[15]                          ; clock        ; clock       ; 0.000        ; 0.000      ; 2.346      ;
+; 2.137 ; registers:t2|q[10]                  ; R7:PC|q[10]                          ; clock        ; clock       ; 0.000        ; 0.000      ; 2.358      ;
+; 2.147 ; registers:t2|q[14]                  ; R7:PC|q[14]                          ; clock        ; clock       ; 0.000        ; 0.000      ; 2.368      ;
+; 2.214 ; registers:t2|q[12]                  ; R7:PC|q[12]                          ; clock        ; clock       ; 0.000        ; 0.000      ; 2.435      ;
+; 2.226 ; registers:t2|q[7]                   ; R7:PC|q[7]                           ; clock        ; clock       ; 0.000        ; 0.000      ; 2.447      ;
+; 2.238 ; registers:t1|q[0]                   ; memory:memory1|RAM~310               ; clock        ; clock       ; 0.000        ; 0.000      ; 2.459      ;
+; 2.258 ; registers:t2|q[13]                  ; R7:PC|q[13]                          ; clock        ; clock       ; 0.000        ; 0.000      ; 2.479      ;
+; 2.314 ; R7:PC1|q[5]                         ; registers:t3|q[5]                    ; clock        ; clock       ; 0.000        ; 0.000      ; 2.535      ;
+; 2.423 ; R7:PC|q[0]                          ; R7:PC1|q[0]                          ; clock        ; clock       ; 0.000        ; 0.000      ; 2.644      ;
+; 2.430 ; R7:PC|q[5]                          ; R7:PC1|q[5]                          ; clock        ; clock       ; 0.000        ; 0.000      ; 2.651      ;
+; 2.469 ; R7:PC|q[4]                          ; R7:PC1|q[4]                          ; clock        ; clock       ; 0.000        ; 0.000      ; 2.690      ;
+; 2.474 ; registers:t3|q[12]                  ; R7:PC|q[12]                          ; clock        ; clock       ; 0.000        ; 0.000      ; 2.695      ;
+; 2.523 ; registers:t3|q[3]                   ; R7:PC|q[3]                           ; clock        ; clock       ; 0.000        ; 0.000      ; 2.744      ;
+; 2.541 ; R7:PC|q[6]                          ; R7:PC1|q[6]                          ; clock        ; clock       ; 0.000        ; 0.000      ; 2.762      ;
+; 2.542 ; registers:t3|q[15]                  ; R7:PC|q[15]                          ; clock        ; clock       ; 0.000        ; 0.000      ; 2.763      ;
+; 2.543 ; registers:instruction_register|q[5] ; registers:t3|q[5]                    ; clock        ; clock       ; 0.000        ; 0.000      ; 2.764      ;
+; 2.561 ; R7:PC|q[2]                          ; R7:PC1|q[2]                          ; clock        ; clock       ; 0.000        ; 0.000      ; 2.782      ;
+; 2.566 ; registers:t3|q[11]                  ; R7:PC|q[11]                          ; clock        ; clock       ; 0.000        ; 0.000      ; 2.787      ;
+; 2.580 ; R7:PC|q[11]                         ; R7:PC1|q[11]                         ; clock        ; clock       ; 0.000        ; 0.000      ; 2.801      ;
+; 2.582 ; R7:PC|q[3]                          ; R7:PC1|q[3]                          ; clock        ; clock       ; 0.000        ; 0.000      ; 2.803      ;
+; 2.900 ; registers:t1|q[2]                   ; memory:memory1|RAM~312               ; clock        ; clock       ; 0.000        ; 0.000      ; 3.121      ;
+; 2.996 ; registers:t3|q[4]                   ; memory:memory1|RAM~314               ; clock        ; clock       ; 0.000        ; 0.000      ; 3.217      ;
+; 3.040 ; R7:PC|q[15]                         ; R7:PC1|q[15]                         ; clock        ; clock       ; 0.000        ; 0.000      ; 3.261      ;
+; 3.051 ; memory:memory1|memout[4]            ; registers:instruction_register|q[4]  ; clock        ; clock       ; 0.000        ; 0.000      ; 3.272      ;
+; 3.071 ; registers:t3|q[8]                   ; R7:PC|q[8]                           ; clock        ; clock       ; 0.000        ; 0.000      ; 3.292      ;
+; 3.081 ; R7:PC|q[13]                         ; R7:PC1|q[13]                         ; clock        ; clock       ; 0.000        ; 0.000      ; 3.302      ;
+; 3.090 ; registers:t2|q[5]                   ; registers:t3|q[5]                    ; clock        ; clock       ; 0.000        ; 0.000      ; 3.311      ;
+; 3.103 ; R7:PC|q[1]                          ; R7:PC1|q[1]                          ; clock        ; clock       ; 0.000        ; 0.000      ; 3.324      ;
+; 3.104 ; memory:memory1|memout[0]            ; registers:instruction_register|q[0]  ; clock        ; clock       ; 0.000        ; 0.000      ; 3.325      ;
+; 3.116 ; memory:memory1|memout[1]            ; registers:instruction_register|q[1]  ; clock        ; clock       ; 0.000        ; 0.000      ; 3.337      ;
+; 3.131 ; registers:t3|q[6]                   ; R7:PC|q[6]                           ; clock        ; clock       ; 0.000        ; 0.000      ; 3.352      ;
+; 3.140 ; memory:memory1|memout[6]            ; registers:instruction_register|q[6]  ; clock        ; clock       ; 0.000        ; 0.000      ; 3.361      ;
+; 3.202 ; registers:t2|q[4]                   ; R7:PC|q[4]                           ; clock        ; clock       ; 0.000        ; 0.000      ; 3.423      ;
+; 3.249 ; registers:t2|q[5]                   ; R7:PC|q[5]                           ; clock        ; clock       ; 0.000        ; 0.000      ; 3.470      ;
+; 3.257 ; R7:PC|q[9]                          ; R7:PC1|q[9]                          ; clock        ; clock       ; 0.000        ; 0.000      ; 3.478      ;
+; 3.259 ; registers:t2|q[3]                   ; R7:PC|q[3]                           ; clock        ; clock       ; 0.000        ; 0.000      ; 3.480      ;
+; 3.289 ; R7:PC|q[12]                         ; R7:PC1|q[12]                         ; clock        ; clock       ; 0.000        ; 0.000      ; 3.510      ;
+; 3.348 ; registers:t1|q[13]                  ; memory:memory1|RAM~99                ; clock        ; clock       ; 0.000        ; 0.000      ; 3.569      ;
+; 3.361 ; R7:PC1|q[4]                         ; registers:t1|q[4]                    ; clock        ; clock       ; 0.000        ; 0.000      ; 3.582      ;
+; 3.367 ; R7:PC1|q[5]                         ; registers:t1|q[5]                    ; clock        ; clock       ; 0.000        ; 0.000      ; 3.588      ;
+; 3.373 ; R7:PC1|q[5]                         ; registers:t2|q[5]                    ; clock        ; clock       ; 0.000        ; 0.000      ; 3.594      ;
+; 3.378 ; registers:t1|q[5]                   ; registers:t3|q[5]                    ; clock        ; clock       ; 0.000        ; 0.000      ; 3.599      ;
+; 3.424 ; registers:t2|q[14]                  ; registers:t3|q[14]                   ; clock        ; clock       ; 0.000        ; 0.000      ; 3.645      ;
+; 3.483 ; registers:t3|q[3]                   ; memory:memory1|RAM~297               ; clock        ; clock       ; 0.000        ; 0.000      ; 3.704      ;
+; 3.554 ; registers:t1|q[2]                   ; memory:memory1|RAM~296               ; clock        ; clock       ; 0.000        ; 0.000      ; 3.775      ;
+; 3.555 ; registers:instruction_register|q[4] ; registers:t1|q[4]                    ; clock        ; clock       ; 0.000        ; 0.000      ; 3.776      ;
+; 3.568 ; registers:instruction_register|q[5] ; registers:t1|q[5]                    ; clock        ; clock       ; 0.000        ; 0.000      ; 3.789      ;
+; 3.574 ; registers:instruction_register|q[5] ; registers:t2|q[5]                    ; clock        ; clock       ; 0.000        ; 0.000      ; 3.795      ;
+; 3.615 ; registers:t3|q[13]                  ; R7:PC|q[13]                          ; clock        ; clock       ; 0.000        ; 0.000      ; 3.836      ;
+; 3.625 ; registers:t2|q[10]                  ; registers:t3|q[10]                   ; clock        ; clock       ; 0.000        ; 0.000      ; 3.846      ;
+; 3.654 ; memory:memory1|memout[3]            ; registers:instruction_register|q[3]  ; clock        ; clock       ; 0.000        ; 0.000      ; 3.875      ;
+; 3.663 ; registers:t3|q[5]                   ; R7:PC|q[5]                           ; clock        ; clock       ; 0.000        ; 0.000      ; 3.884      ;
+; 3.714 ; registers:t1|q[7]                   ; memory:memory1|RAM~301               ; clock        ; clock       ; 0.000        ; 0.000      ; 3.935      ;
+; 3.717 ; registers:instruction_register|q[7] ; registers:t3|q[7]                    ; clock        ; clock       ; 0.000        ; 0.000      ; 3.938      ;
+; 3.717 ; registers:t3|q[7]                   ; memory:memory1|RAM~301               ; clock        ; clock       ; 0.000        ; 0.000      ; 3.938      ;
+; 3.760 ; memory:memory1|memout[7]            ; registers:instruction_register|q[7]  ; clock        ; clock       ; 0.000        ; 0.000      ; 3.981      ;
+; 3.761 ; R7:PC|q[14]                         ; R7:PC1|q[14]                         ; clock        ; clock       ; 0.000        ; 0.000      ; 3.982      ;
+; 3.769 ; R7:PC|q[10]                         ; R7:PC1|q[10]                         ; clock        ; clock       ; 0.000        ; 0.000      ; 3.990      ;
+; 3.871 ; registers:t1|q[5]                   ; memory:memory1|RAM~315               ; clock        ; clock       ; 0.000        ; 0.000      ; 4.092      ;
+; 3.936 ; R7:PC1|q[4]                         ; registers:t2|q[4]                    ; clock        ; clock       ; 0.000        ; 0.000      ; 4.157      ;
+; 3.958 ; registers:t3|q[2]                   ; memory:memory1|RAM~312               ; clock        ; clock       ; 0.000        ; 0.000      ; 4.179      ;
+; 3.961 ; registers:t2|q[11]                  ; R7:PC|q[11]                          ; clock        ; clock       ; 0.000        ; 0.000      ; 4.182      ;
+; 3.991 ; registers:t2|q[6]                   ; R7:PC|q[6]                           ; clock        ; clock       ; 0.000        ; 0.000      ; 4.212      ;
+; 4.027 ; registers:t2|q[14]                  ; registers:t1|q[14]                   ; clock        ; clock       ; 0.000        ; 0.000      ; 4.248      ;
+; 4.038 ; registers:t1|q[6]                   ; memory:memory1|RAM~300               ; clock        ; clock       ; 0.000        ; 0.000      ; 4.259      ;
+; 4.083 ; registers:t1|q[4]                   ; memory:memory1|RAM~314               ; clock        ; clock       ; 0.000        ; 0.000      ; 4.304      ;
+; 4.097 ; registers:t2|q[4]                   ; registers:t1|q[4]                    ; clock        ; clock       ; 0.000        ; 0.000      ; 4.318      ;
+; 4.115 ; registers:t2|q[5]                   ; registers:t1|q[5]                    ; clock        ; clock       ; 0.000        ; 0.000      ; 4.336      ;
+; 4.121 ; registers:t2|q[5]                   ; registers:t2|q[5]                    ; clock        ; clock       ; 0.000        ; 0.000      ; 4.342      ;
+; 4.130 ; registers:instruction_register|q[4] ; registers:t2|q[4]                    ; clock        ; clock       ; 0.000        ; 0.000      ; 4.351      ;
+; 4.133 ; R7:PC1|q[7]                         ; registers:t3|q[7]                    ; clock        ; clock       ; 0.000        ; 0.000      ; 4.354      ;
+; 4.200 ; R7:PC1|q[11]                        ; registers:t3|q[11]                   ; clock        ; clock       ; 0.000        ; 0.000      ; 4.421      ;
+; 4.206 ; registers:t1|q[8]                   ; memory:memory1|RAM~318               ; clock        ; clock       ; 0.000        ; 0.000      ; 4.427      ;
+; 4.232 ; registers:t3|q[0]                   ; memory:memory1|RAM~102               ; clock        ; clock       ; 0.000        ; 0.000      ; 4.453      ;
+; 4.241 ; registers:t3|q[0]                   ; R7:PC|q[0]                           ; clock        ; clock       ; 0.000        ; 0.000      ; 4.462      ;
+; 4.242 ; registers:t3|q[0]                   ; memory:memory1|RAM~118               ; clock        ; clock       ; 0.000        ; 0.000      ; 4.463      ;
+; 4.244 ; registers:t3|q[13]                  ; memory:memory1|RAM~99                ; clock        ; clock       ; 0.000        ; 0.000      ; 4.465      ;
+; 4.316 ; registers:instruction_register|q[8] ; registers:t3|q[8]                    ; clock        ; clock       ; 0.000        ; 0.000      ; 4.537      ;
+; 4.366 ; R7:PC1|q[5]                         ; R7:PC|q[5]                           ; clock        ; clock       ; 0.000        ; 0.000      ; 4.587      ;
+; 4.394 ; registers:t3|q[1]                   ; R7:PC|q[1]                           ; clock        ; clock       ; 0.000        ; 0.000      ; 4.615      ;
+; 4.398 ; registers:t3|q[15]                  ; memory:memory1|RAM~101               ; clock        ; clock       ; 0.000        ; 0.000      ; 4.619      ;
+; 4.414 ; registers:t2|q[8]                   ; R7:PC|q[8]                           ; clock        ; clock       ; 0.000        ; 0.000      ; 4.635      ;
+; 4.415 ; registers:t1|q[1]                   ; memory:memory1|RAM~295               ; clock        ; clock       ; 0.000        ; 0.000      ; 4.636      ;
+; 4.416 ; memory:memory1|memout[5]            ; registers:instruction_register|q[5]  ; clock        ; clock       ; 0.000        ; 0.000      ; 4.637      ;
+; 4.431 ; registers:t1|q[5]                   ; registers:t1|q[5]                    ; clock        ; clock       ; 0.000        ; 0.000      ; 4.652      ;
+; 4.433 ; registers:t1|q[4]                   ; registers:t1|q[4]                    ; clock        ; clock       ; 0.000        ; 0.000      ; 4.654      ;
+; 4.437 ; registers:t1|q[5]                   ; registers:t2|q[5]                    ; clock        ; clock       ; 0.000        ; 0.000      ; 4.658      ;
+; 4.456 ; R7:PC1|q[4]                         ; R7:PC|q[4]                           ; clock        ; clock       ; 0.000        ; 0.000      ; 4.677      ;
+; 4.475 ; registers:t2|q[14]                  ; registers:t2|q[14]                   ; clock        ; clock       ; 0.000        ; 0.000      ; 4.696      ;
+; 4.504 ; registers:t3|q[0]                   ; memory:memory1|RAM~278               ; clock        ; clock       ; 0.000        ; 0.000      ; 4.725      ;
++-------+-------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Recovery: 'clock'                                                                                                                  ;
++---------+------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
+; Slack   ; From Node              ; To Node                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++---------+------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
+; -13.196 ; registers:t1|q[3]      ; memory:memory1|memout[1]  ; clock        ; clock       ; 1.000        ; 0.000      ; 13.863     ;
+; -13.047 ; R7:PC|q[1]             ; memory:memory1|memout[8]  ; clock        ; clock       ; 1.000        ; 0.000      ; 13.714     ;
+; -12.926 ; registers:t1|q[3]      ; memory:memory1|memout[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 13.593     ;
+; -12.818 ; R7:PC|q[3]             ; memory:memory1|memout[1]  ; clock        ; clock       ; 1.000        ; 0.000      ; 13.485     ;
+; -12.760 ; registers:t1|q[3]      ; memory:memory1|memout[6]  ; clock        ; clock       ; 1.000        ; 0.000      ; 13.427     ;
+; -12.751 ; R7:PC|q[2]             ; memory:memory1|memout[1]  ; clock        ; clock       ; 1.000        ; 0.000      ; 13.418     ;
+; -12.654 ; registers:t1|q[3]      ; memory:memory1|memout[12] ; clock        ; clock       ; 1.000        ; 0.000      ; 13.321     ;
+; -12.638 ; registers:t1|q[1]      ; memory:memory1|memout[8]  ; clock        ; clock       ; 1.000        ; 0.000      ; 13.305     ;
+; -12.630 ; registers:t1|q[3]      ; memory:memory1|memout[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 13.297     ;
+; -12.563 ; R7:PC|q[0]             ; memory:memory1|memout[2]  ; clock        ; clock       ; 1.000        ; 0.000      ; 13.230     ;
+; -12.548 ; R7:PC|q[3]             ; memory:memory1|memout[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 13.215     ;
+; -12.454 ; registers:t1|q[3]      ; memory:memory1|memout[3]  ; clock        ; clock       ; 1.000        ; 0.000      ; 13.121     ;
+; -12.450 ; R7:PC|q[1]             ; memory:memory1|memout[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 13.117     ;
+; -12.446 ; R7:PC|q[0]             ; memory:memory1|memout[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 13.113     ;
+; -12.431 ; memory:memory1|RAM~468 ; memory:memory1|memout[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 13.098     ;
+; -12.387 ; registers:t1|q[3]      ; memory:memory1|memout[7]  ; clock        ; clock       ; 1.000        ; 0.000      ; 13.054     ;
+; -12.382 ; R7:PC|q[3]             ; memory:memory1|memout[6]  ; clock        ; clock       ; 1.000        ; 0.000      ; 13.049     ;
+; -12.369 ; registers:t1|q[3]      ; memory:memory1|memout[4]  ; clock        ; clock       ; 1.000        ; 0.000      ; 13.036     ;
+; -12.369 ; R7:PC|q[1]             ; memory:memory1|memout[5]  ; clock        ; clock       ; 1.000        ; 0.000      ; 13.036     ;
+; -12.368 ; R7:PC|q[2]             ; memory:memory1|memout[6]  ; clock        ; clock       ; 1.000        ; 0.000      ; 13.035     ;
+; -12.340 ; registers:t1|q[3]      ; memory:memory1|memout[0]  ; clock        ; clock       ; 1.000        ; 0.000      ; 13.007     ;
+; -12.332 ; registers:t1|q[0]      ; memory:memory1|memout[2]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.999     ;
+; -12.309 ; registers:t1|q[2]      ; memory:memory1|memout[1]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.976     ;
+; -12.276 ; R7:PC|q[3]             ; memory:memory1|memout[12] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.943     ;
+; -12.275 ; R7:PC|q[2]             ; memory:memory1|memout[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.942     ;
+; -12.273 ; R7:PC|q[1]             ; memory:memory1|memout[2]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.940     ;
+; -12.270 ; R7:PC|q[0]             ; memory:memory1|memout[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.937     ;
+; -12.252 ; R7:PC|q[3]             ; memory:memory1|memout[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.919     ;
+; -12.244 ; registers:t1|q[3]      ; memory:memory1|memout[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.911     ;
+; -12.241 ; registers:t1|q[3]      ; memory:memory1|memout[5]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.908     ;
+; -12.215 ; registers:t1|q[0]      ; memory:memory1|memout[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.882     ;
+; -12.200 ; R7:PC|q[1]             ; memory:memory1|memout[6]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.867     ;
+; -12.193 ; R7:PC|q[0]             ; memory:memory1|memout[4]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.860     ;
+; -12.189 ; R7:PC|q[2]             ; memory:memory1|memout[3]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.856     ;
+; -12.175 ; R7:PC|q[2]             ; memory:memory1|memout[7]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.842     ;
+; -12.161 ; R7:PC|q[2]             ; memory:memory1|memout[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.828     ;
+; -12.126 ; R7:PC|q[2]             ; memory:memory1|memout[2]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.793     ;
+; -12.118 ; R7:PC|q[0]             ; memory:memory1|memout[8]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.785     ;
+; -12.105 ; registers:t3|q[1]      ; memory:memory1|memout[8]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.772     ;
+; -12.076 ; R7:PC|q[3]             ; memory:memory1|memout[3]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.743     ;
+; -12.041 ; registers:t1|q[1]      ; memory:memory1|memout[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.708     ;
+; -12.040 ; R7:PC|q[1]             ; memory:memory1|memout[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.707     ;
+; -12.039 ; registers:t1|q[0]      ; memory:memory1|memout[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.706     ;
+; -12.023 ; memory:memory1|RAM~267 ; memory:memory1|memout[5]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.690     ;
+; -12.018 ; R7:PC|q[2]             ; memory:memory1|memout[8]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.685     ;
+; -12.009 ; R7:PC|q[3]             ; memory:memory1|memout[7]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.676     ;
+; -11.991 ; R7:PC|q[3]             ; memory:memory1|memout[4]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.658     ;
+; -11.962 ; R7:PC|q[3]             ; memory:memory1|memout[0]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.629     ;
+; -11.962 ; registers:t1|q[0]      ; memory:memory1|memout[4]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.629     ;
+; -11.960 ; registers:t1|q[1]      ; memory:memory1|memout[5]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.627     ;
+; -11.934 ; memory:memory1|RAM~216 ; memory:memory1|memout[2]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.601     ;
+; -11.926 ; registers:t1|q[2]      ; memory:memory1|memout[6]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.593     ;
+; -11.887 ; registers:t1|q[0]      ; memory:memory1|memout[8]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.554     ;
+; -11.870 ; registers:t1|q[3]      ; memory:memory1|memout[2]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.537     ;
+; -11.866 ; R7:PC|q[3]             ; memory:memory1|memout[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.533     ;
+; -11.864 ; registers:t1|q[1]      ; memory:memory1|memout[2]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.531     ;
+; -11.863 ; R7:PC|q[3]             ; memory:memory1|memout[5]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.530     ;
+; -11.862 ; registers:t3|q[3]      ; memory:memory1|memout[1]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.529     ;
+; -11.861 ; registers:t1|q[3]      ; memory:memory1|memout[8]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.528     ;
+; -11.858 ; memory:memory1|RAM~402 ; memory:memory1|memout[12] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.525     ;
+; -11.833 ; registers:t1|q[2]      ; memory:memory1|memout[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.500     ;
+; -11.817 ; registers:t3|q[2]      ; memory:memory1|memout[1]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.484     ;
+; -11.791 ; registers:t1|q[1]      ; memory:memory1|memout[6]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.458     ;
+; -11.773 ; R7:PC|q[0]             ; memory:memory1|memout[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.440     ;
+; -11.769 ; memory:memory1|RAM~279 ; memory:memory1|memout[1]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.436     ;
+; -11.755 ; R7:PC|q[2]             ; memory:memory1|memout[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.422     ;
+; -11.747 ; registers:t1|q[2]      ; memory:memory1|memout[3]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.414     ;
+; -11.733 ; R7:PC|q[2]             ; memory:memory1|memout[12] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.400     ;
+; -11.733 ; registers:t1|q[2]      ; memory:memory1|memout[7]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.400     ;
+; -11.719 ; registers:t1|q[2]      ; memory:memory1|memout[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.386     ;
+; -11.707 ; R7:PC|q[2]             ; memory:memory1|memout[5]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.374     ;
+; -11.684 ; registers:t1|q[2]      ; memory:memory1|memout[2]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.351     ;
+; -11.683 ; R7:PC|q[0]             ; memory:memory1|memout[12] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.350     ;
+; -11.670 ; R7:PC|q[2]             ; memory:memory1|memout[4]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.337     ;
+; -11.636 ; R7:PC|q[1]             ; memory:memory1|memout[4]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.303     ;
+; -11.631 ; registers:t1|q[1]      ; memory:memory1|memout[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.298     ;
+; -11.622 ; registers:t3|q[0]      ; memory:memory1|memout[2]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.289     ;
+; -11.592 ; registers:t3|q[3]      ; memory:memory1|memout[14] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.259     ;
+; -11.590 ; memory:memory1|RAM~296 ; memory:memory1|memout[2]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.257     ;
+; -11.584 ; R7:PC|q[0]             ; memory:memory1|memout[7]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.251     ;
+; -11.582 ; R7:PC|q[2]             ; memory:memory1|memout[0]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.249     ;
+; -11.577 ; R7:PC|q[0]             ; memory:memory1|memout[6]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.244     ;
+; -11.576 ; registers:t1|q[2]      ; memory:memory1|memout[8]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.243     ;
+; -11.575 ; R7:PC|q[1]             ; memory:memory1|memout[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.242     ;
+; -11.565 ; R7:PC|q[1]             ; memory:memory1|memout[1]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.232     ;
+; -11.542 ; registers:t1|q[0]      ; memory:memory1|memout[13] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.209     ;
+; -11.525 ; R7:PC|q[0]             ; memory:memory1|memout[3]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.192     ;
+; -11.520 ; R7:PC|q[1]             ; memory:memory1|memout[12] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.187     ;
+; -11.508 ; registers:t3|q[1]      ; memory:memory1|memout[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.175     ;
+; -11.505 ; registers:t3|q[0]      ; memory:memory1|memout[15] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.172     ;
+; -11.502 ; R7:PC|q[1]             ; memory:memory1|memout[7]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.169     ;
+; -11.494 ; R7:PC|q[1]             ; memory:memory1|memout[3]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.161     ;
+; -11.492 ; R7:PC|q[3]             ; memory:memory1|memout[2]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.159     ;
+; -11.483 ; R7:PC|q[3]             ; memory:memory1|memout[8]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.150     ;
+; -11.452 ; registers:t1|q[0]      ; memory:memory1|memout[12] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.119     ;
+; -11.434 ; registers:t3|q[2]      ; memory:memory1|memout[6]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.101     ;
+; -11.427 ; registers:t3|q[1]      ; memory:memory1|memout[5]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.094     ;
+; -11.426 ; registers:t3|q[3]      ; memory:memory1|memout[6]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.093     ;
+; -11.414 ; memory:memory1|RAM~146 ; memory:memory1|memout[12] ; clock        ; clock       ; 1.000        ; 0.000      ; 12.081     ;
+; -11.399 ; R7:PC|q[0]             ; memory:memory1|memout[5]  ; clock        ; clock       ; 1.000        ; 0.000      ; 12.066     ;
++---------+------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Removal: 'clock'                                                                                                                 ;
++-------+------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node              ; To Node                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
+; 4.837 ; memory:memory1|RAM~173 ; memory:memory1|memout[7]  ; clock        ; clock       ; 0.000        ; 0.000      ; 5.058      ;
+; 5.192 ; memory:memory1|RAM~59  ; memory:memory1|memout[5]  ; clock        ; clock       ; 0.000        ; 0.000      ; 5.413      ;
+; 5.243 ; memory:memory1|RAM~66  ; memory:memory1|memout[12] ; clock        ; clock       ; 0.000        ; 0.000      ; 5.464      ;
+; 5.292 ; memory:memory1|RAM~382 ; memory:memory1|memout[8]  ; clock        ; clock       ; 0.000        ; 0.000      ; 5.513      ;
+; 5.319 ; memory:memory1|RAM~230 ; memory:memory1|memout[0]  ; clock        ; clock       ; 0.000        ; 0.000      ; 5.540      ;
+; 5.363 ; memory:memory1|RAM~424 ; memory:memory1|memout[2]  ; clock        ; clock       ; 0.000        ; 0.000      ; 5.584      ;
+; 5.415 ; memory:memory1|RAM~169 ; memory:memory1|memout[3]  ; clock        ; clock       ; 0.000        ; 0.000      ; 5.636      ;
+; 5.418 ; memory:memory1|RAM~44  ; memory:memory1|memout[6]  ; clock        ; clock       ; 0.000        ; 0.000      ; 5.639      ;
+; 5.488 ; memory:memory1|RAM~430 ; memory:memory1|memout[8]  ; clock        ; clock       ; 0.000        ; 0.000      ; 5.709      ;
+; 5.547 ; memory:memory1|RAM~379 ; memory:memory1|memout[5]  ; clock        ; clock       ; 0.000        ; 0.000      ; 5.768      ;
+; 5.585 ; memory:memory1|RAM~62  ; memory:memory1|memout[8]  ; clock        ; clock       ; 0.000        ; 0.000      ; 5.806      ;
+; 5.733 ; memory:memory1|RAM~182 ; memory:memory1|memout[0]  ; clock        ; clock       ; 0.000        ; 0.000      ; 5.954      ;
+; 5.758 ; memory:memory1|RAM~249 ; memory:memory1|memout[3]  ; clock        ; clock       ; 0.000        ; 0.000      ; 5.979      ;
+; 5.799 ; memory:memory1|RAM~439 ; memory:memory1|memout[1]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.020      ;
+; 5.824 ; memory:memory1|RAM~246 ; memory:memory1|memout[0]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.045      ;
+; 5.848 ; memory:memory1|RAM~116 ; memory:memory1|memout[14] ; clock        ; clock       ; 0.000        ; 0.000      ; 6.069      ;
+; 5.892 ; memory:memory1|RAM~84  ; memory:memory1|memout[14] ; clock        ; clock       ; 0.000        ; 0.000      ; 6.113      ;
+; 5.907 ; memory:memory1|RAM~187 ; memory:memory1|memout[5]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.128      ;
+; 6.015 ; memory:memory1|RAM~106 ; memory:memory1|memout[4]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.236      ;
+; 6.041 ; memory:memory1|RAM~422 ; memory:memory1|memout[0]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.262      ;
+; 6.125 ; memory:memory1|RAM~456 ; memory:memory1|memout[2]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.346      ;
+; 6.166 ; memory:memory1|RAM~247 ; memory:memory1|memout[1]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.387      ;
+; 6.204 ; memory:memory1|RAM~172 ; memory:memory1|memout[6]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.425      ;
+; 6.205 ; memory:memory1|RAM~361 ; memory:memory1|memout[3]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.426      ;
+; 6.219 ; memory:memory1|RAM~41  ; memory:memory1|memout[3]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.440      ;
+; 6.219 ; memory:memory1|RAM~58  ; memory:memory1|memout[4]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.440      ;
+; 6.230 ; memory:memory1|RAM~114 ; memory:memory1|memout[12] ; clock        ; clock       ; 0.000        ; 0.000      ; 6.451      ;
+; 6.238 ; memory:memory1|RAM~166 ; memory:memory1|memout[0]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.459      ;
+; 6.283 ; memory:memory1|RAM~82  ; memory:memory1|memout[12] ; clock        ; clock       ; 0.000        ; 0.000      ; 6.504      ;
+; 6.304 ; memory:memory1|RAM~375 ; memory:memory1|memout[1]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.525      ;
+; 6.340 ; memory:memory1|RAM~45  ; memory:memory1|memout[7]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.561      ;
+; 6.379 ; memory:memory1|RAM~426 ; memory:memory1|memout[4]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.600      ;
+; 6.380 ; memory:memory1|RAM~51  ; memory:memory1|memout[13] ; clock        ; clock       ; 0.000        ; 0.000      ; 6.601      ;
+; 6.384 ; memory:memory1|RAM~167 ; memory:memory1|memout[1]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.605      ;
+; 6.412 ; memory:memory1|RAM~171 ; memory:memory1|memout[5]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.633      ;
+; 6.417 ; memory:memory1|RAM~376 ; memory:memory1|memout[2]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.638      ;
+; 6.450 ; memory:memory1|RAM~253 ; memory:memory1|memout[7]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.671      ;
+; 6.468 ; memory:memory1|RAM~252 ; memory:memory1|memout[6]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.689      ;
+; 6.479 ; memory:memory1|RAM~70  ; memory:memory1|memout[0]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.700      ;
+; 6.495 ; memory:memory1|RAM~234 ; memory:memory1|memout[4]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.716      ;
+; 6.595 ; memory:memory1|RAM~347 ; memory:memory1|memout[5]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.816      ;
+; 6.619 ; memory:memory1|RAM~186 ; memory:memory1|memout[4]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.840      ;
+; 6.630 ; memory:memory1|RAM~392 ; memory:memory1|memout[2]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.851      ;
+; 6.637 ; memory:memory1|RAM~184 ; memory:memory1|memout[2]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.858      ;
+; 6.638 ; memory:memory1|RAM~344 ; memory:memory1|memout[2]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.859      ;
+; 6.638 ; memory:memory1|RAM~427 ; memory:memory1|memout[5]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.859      ;
+; 6.653 ; memory:memory1|RAM~86  ; memory:memory1|memout[0]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.874      ;
+; 6.671 ; memory:memory1|RAM~231 ; memory:memory1|memout[1]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.892      ;
+; 6.673 ; memory:memory1|RAM~233 ; memory:memory1|memout[3]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.894      ;
+; 6.681 ; memory:memory1|RAM~393 ; memory:memory1|memout[3]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.902      ;
+; 6.682 ; memory:memory1|RAM~190 ; memory:memory1|memout[8]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.903      ;
+; 6.684 ; memory:memory1|RAM~235 ; memory:memory1|memout[5]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.905      ;
+; 6.687 ; memory:memory1|RAM~494 ; memory:memory1|memout[8]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.908      ;
+; 6.710 ; memory:memory1|RAM~425 ; memory:memory1|memout[3]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.931      ;
+; 6.722 ; memory:memory1|RAM~459 ; memory:memory1|memout[5]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.943      ;
+; 6.735 ; memory:memory1|RAM~98  ; memory:memory1|memout[12] ; clock        ; clock       ; 0.000        ; 0.000      ; 6.956      ;
+; 6.740 ; memory:memory1|RAM~104 ; memory:memory1|memout[2]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.961      ;
+; 6.763 ; memory:memory1|RAM~100 ; memory:memory1|memout[14] ; clock        ; clock       ; 0.000        ; 0.000      ; 6.984      ;
+; 6.768 ; memory:memory1|RAM~102 ; memory:memory1|memout[0]  ; clock        ; clock       ; 0.000        ; 0.000      ; 6.989      ;
+; 6.789 ; memory:memory1|RAM~444 ; memory:memory1|memout[6]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.010      ;
+; 6.793 ; memory:memory1|RAM~364 ; memory:memory1|memout[6]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.014      ;
+; 6.811 ; memory:memory1|RAM~350 ; memory:memory1|memout[8]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.032      ;
+; 6.813 ; memory:memory1|RAM~39  ; memory:memory1|memout[1]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.034      ;
+; 6.821 ; memory:memory1|RAM~238 ; memory:memory1|memout[8]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.042      ;
+; 6.821 ; memory:memory1|RAM~378 ; memory:memory1|memout[4]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.042      ;
+; 6.837 ; memory:memory1|RAM~441 ; memory:memory1|memout[3]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.058      ;
+; 6.851 ; memory:memory1|RAM~53  ; memory:memory1|memout[15] ; clock        ; clock       ; 0.000        ; 0.000      ; 7.072      ;
+; 6.855 ; memory:memory1|RAM~374 ; memory:memory1|memout[0]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.076      ;
+; 6.858 ; memory:memory1|RAM~342 ; memory:memory1|memout[0]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.079      ;
+; 6.890 ; memory:memory1|RAM~359 ; memory:memory1|memout[1]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.111      ;
+; 6.911 ; registers:t3|q[3]      ; memory:memory1|memout[4]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.132      ;
+; 6.922 ; memory:memory1|RAM~440 ; memory:memory1|memout[2]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.143      ;
+; 6.929 ; memory:memory1|RAM~68  ; memory:memory1|memout[14] ; clock        ; clock       ; 0.000        ; 0.000      ; 7.150      ;
+; 6.940 ; memory:memory1|RAM~90  ; memory:memory1|memout[4]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.161      ;
+; 6.944 ; memory:memory1|RAM~179 ; memory:memory1|memout[13] ; clock        ; clock       ; 0.000        ; 0.000      ; 7.165      ;
+; 6.952 ; memory:memory1|RAM~462 ; memory:memory1|memout[8]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.173      ;
+; 6.955 ; memory:memory1|RAM~237 ; memory:memory1|memout[7]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.176      ;
+; 7.000 ; memory:memory1|RAM~250 ; memory:memory1|memout[4]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.221      ;
+; 7.006 ; memory:memory1|RAM~72  ; memory:memory1|memout[2]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.227      ;
+; 7.029 ; memory:memory1|RAM~189 ; memory:memory1|memout[7]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.250      ;
+; 7.062 ; memory:memory1|RAM~243 ; memory:memory1|memout[13] ; clock        ; clock       ; 0.000        ; 0.000      ; 7.283      ;
+; 7.092 ; memory:memory1|RAM~105 ; memory:memory1|memout[3]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.313      ;
+; 7.101 ; memory:memory1|RAM~445 ; memory:memory1|memout[7]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.322      ;
+; 7.111 ; memory:memory1|RAM~107 ; memory:memory1|memout[5]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.332      ;
+; 7.124 ; memory:memory1|RAM~458 ; memory:memory1|memout[4]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.345      ;
+; 7.131 ; memory:memory1|RAM~346 ; memory:memory1|memout[4]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.352      ;
+; 7.139 ; memory:memory1|RAM~103 ; memory:memory1|memout[1]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.360      ;
+; 7.143 ; memory:memory1|RAM~408 ; memory:memory1|memout[2]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.364      ;
+; 7.180 ; memory:memory1|RAM~134 ; memory:memory1|memout[0]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.401      ;
+; 7.186 ; memory:memory1|RAM~457 ; memory:memory1|memout[3]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.407      ;
+; 7.189 ; memory:memory1|RAM~251 ; memory:memory1|memout[5]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.410      ;
+; 7.193 ; memory:memory1|RAM~141 ; memory:memory1|memout[7]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.414      ;
+; 7.194 ; memory:memory1|RAM~498 ; memory:memory1|memout[12] ; clock        ; clock       ; 0.000        ; 0.000      ; 7.415      ;
+; 7.202 ; memory:memory1|RAM~236 ; memory:memory1|memout[6]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.423      ;
+; 7.209 ; memory:memory1|RAM~227 ; memory:memory1|memout[13] ; clock        ; clock       ; 0.000        ; 0.000      ; 7.430      ;
+; 7.209 ; memory:memory1|RAM~397 ; memory:memory1|memout[7]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.430      ;
+; 7.216 ; memory:memory1|RAM~36  ; memory:memory1|memout[14] ; clock        ; clock       ; 0.000        ; 0.000      ; 7.437      ;
+; 7.221 ; memory:memory1|RAM~211 ; memory:memory1|memout[13] ; clock        ; clock       ; 0.000        ; 0.000      ; 7.442      ;
+; 7.236 ; memory:memory1|RAM~391 ; memory:memory1|memout[1]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.457      ;
+; 7.254 ; memory:memory1|RAM~454 ; memory:memory1|memout[0]  ; clock        ; clock       ; 0.000        ; 0.000      ; 7.475      ;
++-------+------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clock      ; clock    ; 14061    ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clock      ; clock    ; 14061    ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Recovery Transfers                                                ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clock      ; clock    ; 1625     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Removal Transfers                                                 ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clock      ; clock    ; 1625     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 21    ; 21   ;
+; Unconstrained Input Port Paths  ; 2879  ; 2879 ;
+; Unconstrained Output Ports      ; 6     ; 6    ;
+; Unconstrained Output Port Paths ; 6     ; 6    ;
++---------------------------------+-------+------+
+
+
++-------------------------------------+
+; Clock Status Summary                ;
++--------+-------+------+-------------+
+; Target ; Clock ; Type ; Status      ;
++--------+-------+------+-------------+
+; clock  ; clock ; Base ; Constrained ;
++--------+-------+------+-------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; T[2]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[6]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[7]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[10]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[11]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[12]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[13]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[14]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[15]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[16]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[17]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[18]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[19]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[20]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[21]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[22]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[23]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[25]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[26]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[27]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                           ;
++--------------+---------------------------------------------------------------------------------------+
+; Output Port  ; Comment                                                                               ;
++--------------+---------------------------------------------------------------------------------------+
+; condition[0] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; condition[1] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; op_code[0]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; op_code[1]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; op_code[2]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; op_code[3]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++--------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; T[2]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[6]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[7]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[10]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[11]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[12]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[13]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[14]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[15]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[16]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[17]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[18]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[19]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[20]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[21]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[22]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[23]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[25]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[26]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; T[27]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                           ;
++--------------+---------------------------------------------------------------------------------------+
+; Output Port  ; Comment                                                                               ;
++--------------+---------------------------------------------------------------------------------------+
+; condition[0] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; condition[1] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; op_code[0]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; op_code[1]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; op_code[2]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; op_code[3]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++--------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Tue May 03 12:34:24 2022
+Info: Command: quartus_sta RISC_1 -c RISC_1
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'RISC_1.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clock clock
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -17.633
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -17.633           -6014.118 clock 
+Info (332146): Worst-case hold slack is 1.377
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     1.377               0.000 clock 
+Info (332146): Worst-case recovery slack is -13.196
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -13.196            -163.939 clock 
+Info (332146): Worst-case removal slack is 4.837
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     4.837               0.000 clock 
+Info (332146): Worst-case minimum pulse width slack is -2.289
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 clock 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4684 megabytes
+    Info: Processing ended: Tue May 03 12:34:26 2022
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+
